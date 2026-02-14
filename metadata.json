@@ -1,0 +1,8 @@
+{
+  "name": "M3foto Portfolio",
+  "description": "A vibrant, colorful, and interactive portfolio for M3foto photography studio, featuring an AI-powered consultation assistant and a comprehensive showcase of professional services.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
