@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Service, SocialLinks } from './types';
+import { Service, SocialLinks } from './types.ts';
 
 export const SERVICES: Service[] = [
   {
@@ -57,7 +57,7 @@ export const GALLERY_IMAGES = [
   'https://lh3.googleusercontent.com/p/AF1QipOdxbiJyM8HqqGzZKGB0Tg5izdoMy2y2XkGsHJe=w1000-h1200-k-no',
   'https://lh3.googleusercontent.com/p/AF1QipOjbYUZSZ8JxGOZcnBh_FciIflqOAMNbYWiroNy=w1000-h1200-k-no',
   'https://lh3.googleusercontent.com/p/AF1QipMFeX5TPYskFRGJ9-epSLcvLX4IukzetufLE7RR=w1000-h1200-k-no',
-  'https://lh3.googleusercontent.com/p/AF1QipMixdCSXwXpoCS7ILQpcpEk-lmZ2EYeCYAk77aA=w1000-h1200-k-no',
+  'https://lh3.googleusercontent.com/p/AF1QipMixdCSXwXpoCS7ILQpcpEk-lmZ2EYeCYAk77aA=w1000-h1500-k-no',
   'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
   'https://images.unsplash.com/photo-1551316679-9c6ae9dec224?auto=format&fit=crop&q=80&w=800'
 ];

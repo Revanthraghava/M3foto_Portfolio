@@ -3,7 +3,15 @@ import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types.ts";
 
 // Safeguard process.env for browser environments to prevent white-screen ReferenceErrors
-const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : "";
+const getApiKey = () => {
+  try {
+    return (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : "";
+  } catch (e) {
+    return "";
+  }
+};
+
+const apiKey = getApiKey();
 const ai = new GoogleGenAI({ apiKey: apiKey || "" });
 
 export const getPhotographyConsultation = async (userMessage: string, history: ChatMessage[]) => {
