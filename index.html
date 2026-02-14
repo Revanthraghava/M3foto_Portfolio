@@ -28,7 +28,6 @@
         background-size: 200% 200%;
         animation: gradient-bg 15s ease infinite;
       }
-      /* Ensure images don't look broken while loading */
       img {
         transition: opacity 0.3s ease-in-out;
       }
@@ -49,5 +48,7 @@
 </head>
   <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
     <div id="root"></div>
+    <!-- Entry point for the React application -->
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

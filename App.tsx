@@ -1,13 +1,13 @@
 
 import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import PortfolioGallery from './components/PortfolioGallery';
-import About from './components/About';
-import Services from './components/Services';
-import BookingForm from './components/BookingForm';
-import AIConsultant from './components/AIConsultant';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import PortfolioGallery from './components/PortfolioGallery.tsx';
+import About from './components/About.tsx';
+import Services from './components/Services.tsx';
+import BookingForm from './components/BookingForm.tsx';
+import AIConsultant from './components/AIConsultant.tsx';
+import Footer from './components/Footer.tsx';
 
 const App: React.FC = () => {
   useEffect(() => {

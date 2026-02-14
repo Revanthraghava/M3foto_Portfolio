@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GALLERY_IMAGES } from '../constants';
+import { GALLERY_IMAGES } from '../constants.tsx';
 
 const PortfolioGallery: React.FC = () => {
   return (

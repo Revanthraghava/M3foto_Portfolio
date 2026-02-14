@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { SERVICES, CONTACT_INFO } from '../constants';
+import { SERVICES, CONTACT_INFO } from '../constants.tsx';
 
 const BookingForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,17 +28,12 @@ _Sent from M3foto Portfolio Website_`;
 
     const encodedMsg = encodeURIComponent(messageText);
     const cleanPhone = CONTACT_INFO.phone.replace(/\s+/g, '');
-    // Using 91 as country code for India (Vijayawada)
     return `https://wa.me/91${cleanPhone}?text=${encodedMsg}`;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Set success state for visual feedback
     setStatus('success');
-    
-    // Redirect to WhatsApp after a short delay
     const waUrl = getWhatsAppUrl();
     setTimeout(() => {
       window.open(waUrl, '_blank');
@@ -47,7 +42,6 @@ _Sent from M3foto Portfolio Website_`;
 
   return (
     <section id="book" className="py-24 relative overflow-hidden">
-      {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-rose-500/10 blur-[100px] -z-10 rounded-full"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 blur-[100px] -z-10 rounded-full"></div>
 
@@ -166,7 +160,7 @@ _Sent from M3foto Portfolio Website_`;
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Tell us more (Vision, Location, etc.)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Tell us more</label>
                   <textarea 
                     rows={4}
                     placeholder="Describe your vision or the event location..."
@@ -182,9 +176,6 @@ _Sent from M3foto Portfolio Website_`;
                 >
                   Confirm Booking & Send WhatsApp <i className="fab fa-whatsapp ml-3 text-2xl"></i>
                 </button>
-                <p className="text-center text-xs text-slate-400">
-                  Clicking this will generate a pre-filled WhatsApp message for M3foto Studio.
-                </p>
               </form>
             )}
           </div>

@@ -1,8 +1,10 @@
 
 import { GoogleGenAI } from "@google/genai";
-import { ChatMessage } from "../types";
+import { ChatMessage } from "../types.ts";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+// Safeguard process.env for browser environments to prevent white-screen ReferenceErrors
+const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : "";
+const ai = new GoogleGenAI({ apiKey: apiKey || "" });
 
 export const getPhotographyConsultation = async (userMessage: string, history: ChatMessage[]) => {
   try {
@@ -27,7 +29,6 @@ export const getPhotographyConsultation = async (userMessage: string, history: C
       },
     });
 
-    // We don't use history in this simple MVP to avoid token bloat, but it can be added.
     const response = await chat.sendMessage({ message: userMessage });
     return response.text;
   } catch (error) {
