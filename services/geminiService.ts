@@ -2,20 +2,32 @@
 import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types.ts";
 
-// Safeguard process.env for browser environments to prevent white-screen ReferenceErrors
-const getApiKey = () => {
+/**
+ * Safely retrieves the API key from environment variables.
+ */
+const getSafeApiKey = (): string => {
   try {
-    return (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : "";
+    // Check if process and process.env exist before access
+    if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
+      return process.env.API_KEY;
+    }
   } catch (e) {
-    return "";
+    // Silent fail to prevent crash
   }
+  return "";
 };
 
-const apiKey = getApiKey();
-const ai = new GoogleGenAI({ apiKey: apiKey || "" });
-
 export const getPhotographyConsultation = async (userMessage: string, history: ChatMessage[]) => {
+  const apiKey = getSafeApiKey();
+  
+  if (!apiKey) {
+    console.error("Gemini API key is missing. Ensure process.env.API_KEY is configured.");
+    return "I'm currently resting my lens. Please reach out to us directly via WhatsApp at 89782 48437 for any inquiries!";
+  }
+
   try {
+    // Re-initialize client to ensure latest key is used and prevent global init crashes
+    const ai = new GoogleGenAI({ apiKey });
     const chat = ai.chats.create({
       model: 'gemini-3-flash-preview',
       config: {
